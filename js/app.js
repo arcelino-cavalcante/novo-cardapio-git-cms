@@ -1631,25 +1631,47 @@ function formatOrderForWhatsApp(order) {
     let msg = `*Olá, gostaria de fazer o seguinte pedido:*\n\n`;
     msg += `*Nome do Cliente:* ${order.customer.name}\n`;
 
+    let refStr = order.customer.reference || '';
+    if (order.customer.observation) {
+        refStr += refStr ? ` | Obs: ${order.customer.observation}` : `Obs: ${order.customer.observation}`;
+    }
+
     if (order.customer.deliveryType === 'local') {
         msg += `*Endereço:* Retirada no Local\n`;
+        if (refStr) msg += `*Local/Ponto de Referência:* ${refStr}\n`;
     } else {
         msg += `*Endereço:* ${order.customer.address || ''}\n`;
         if (order.customer.deliveryType === 'sitio') {
             msg += `*Sítio:* ${order.customer.sitioName || ''}\n`;
-            msg += `*Local/Ponto de Referência:* ${order.customer.reference || ''}\n`;
         }
+        if (refStr) msg += `*Local/Ponto de Referência:* ${refStr}\n`;
     }
 
     msg += `\n*Ítens do pedido:*\n`;
     order.items.forEach((item, idx) => {
         const catLabel = item.meta?.categoryName ? ` [${item.meta.categoryName.toUpperCase()}]` : '';
         msg += `(${item.qty}) ${item.name}${catLabel} - ${money(item.price * item.qty)}\n`;
+        msg += `Quantidade: ${item.qty}\n`;
+        msg += `Total: ${money(item.price * item.qty)}\n`;
+
+        let borda = null;
+        let obsParts = [];
+
         if (item.meta) {
-            if (item.meta.sizeLabel) msg += `   Tamanho: ${item.meta.sizeLabel}\n`;
-            if (item.meta.option) msg += `   ${item.meta.option.label || 'Opção'}: ${item.meta.option.name}\n`;
-            if (item.meta.half?.enabled) msg += `   Meia: ${item.meta.half.secondProductName}\n`;
+            if (item.meta.sizeLabel) obsParts.push(`Tamanho: ${item.meta.sizeLabel}`);
+            
+            if (item.meta.option) {
+                if (item.meta.option.label && item.meta.option.label.toLowerCase() === 'borda') {
+                    borda = item.meta.option.name;
+                } else {
+                    obsParts.push(`${item.meta.option.label || 'Opção'}: ${item.meta.option.name}`);
+                }
+            }
+            if (item.meta.half?.enabled) obsParts.push(`Meia: ${item.meta.half.secondProductName}`);
         }
+
+        if (borda) msg += `Borda: ${borda}\n`;
+        if (obsParts.length > 0) msg += `Obs: ${obsParts.join(', ')}\n`;
     });
 
     // Taxa
@@ -1668,10 +1690,6 @@ function formatOrderForWhatsApp(order) {
 
     if (order.method === 'cash' && order.change > 0) {
         msg += `*Troco para:* ${money(order.change)}\n`;
-    }
-
-    if (order.customer.observation) {
-        msg += `\n*Observação:* ${order.customer.observation}\n`;
     }
 
     return msg;
