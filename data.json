@@ -1,8 +1,23 @@
 {
   "categories": [
     {
-      "id": "pizzas",
-      "name": "Pizzas",
+      "id": "tradicionais",
+      "name": "Pizzas Tradicionais",
+      "useSizes": true
+    },
+    {
+      "id": "doces",
+      "name": "Pizzas Doces",
+      "useSizes": true
+    },
+    {
+      "id": "premium-doces",
+      "name": "Pizzas Premium Doces",
+      "useSizes": true
+    },
+    {
+      "id": "premium-salgadas",
+      "name": "Pizzas Premium Salgadas",
       "useSizes": true
     },
     {
@@ -18,17 +33,817 @@
   ],
   "products": [
     {
-      "id": "prod-mon016kk8g5y",
-      "name": "ccccc",
-      "description": "cccc",
-      "categoryId": "pizzas",
+      "id": "prod-001",
+      "name": "A Moda do Chefe",
+      "description": "Frango desfiado, palmito, ovos, bacon, catupiry",
+      "categoryId": "tradicionais",
       "imageUrl": "",
       "available": true,
       "optionGroupId": null,
       "prices": {
-        "p": 4,
-        "m": 6,
-        "g": 8
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-002",
+      "name": "Atum",
+      "description": "Atum, mussarela, cebola, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-003",
+      "name": "Bacon",
+      "description": "Molho de tomate, mussarela, bacon, ovos, tomate",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 38
+      }
+    },
+    {
+      "id": "prod-004",
+      "name": "Baiana",
+      "description": "Molho de tomate, calabresa, ovos, cebola, mussarela, pimenta",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 35
+      }
+    },
+    {
+      "id": "prod-005",
+      "name": "Brasileira Pizza",
+      "description": "Mussarela, presunto, milho, ervilha, tomate",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-006",
+      "name": "Calabresa",
+      "description": "Molho de tomate, calabresa, cebola",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-007",
+      "name": "Calabresa 3 Queijos",
+      "description": "Molho de tomate, calabresa, mussarela, catupiry, cheddar",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-008",
+      "name": "Caipira",
+      "description": "Molho de tomate, mussarela, frango desfiado, cebola, milho, tomate, bacon",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 39
+      }
+    },
+    {
+      "id": "prod-009",
+      "name": "Charque",
+      "description": "Molho de tomate, mussarela, charque, tomate, azeitona",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-010",
+      "name": "Dois Queijos",
+      "description": "Molho de tomate, mussarela, catupiry",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 35
+      }
+    },
+    {
+      "id": "prod-011",
+      "name": "Três Queijos",
+      "description": "Molho de tomate, mussarela, catupiry, parmesão",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-012",
+      "name": "Quatro Queijos",
+      "description": "Molho de tomate, mussarela, catupiry, cheddar, parmesão, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-013",
+      "name": "Do Pizzaiolo",
+      "description": "Molho de tomate, mussarela, calabresa, bacon, palmito, queijo provolone, milho, ovos",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-014",
+      "name": "Favorita",
+      "description": "Molho de tomate, calabresa, ovos, palmito, azeitona",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-015",
+      "name": "Frango c/ Catupiry",
+      "description": "Molho de tomate, frango desfiado e catupiry",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 35
+      }
+    },
+    {
+      "id": "prod-016",
+      "name": "Frango c/ Cheddar",
+      "description": "Molho de tomate, frango desfiado, cheddar",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 35
+      }
+    },
+    {
+      "id": "prod-017",
+      "name": "Frango c/ Mussarela",
+      "description": "Molho de tomate, frango desfiado, mussarela",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-018",
+      "name": "Italiana",
+      "description": "Mussarela, salame italiano, molho de tomate",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-019",
+      "name": "Marguerita",
+      "description": "Molho de tomate, mussarela, parmesão, tomate e manjericão",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-020",
+      "name": "Mussarela",
+      "description": "Molho de tomate, mussarela, tomate, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-021",
+      "name": "Mussa Palha",
+      "description": "Molho de tomate, mussarela, tomate, batata palha",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-022",
+      "name": "Napolitana",
+      "description": "Molho de tomate, mussarela, parmesão, presunto, tomate, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-023",
+      "name": "Palmito",
+      "description": "Presunto, palmito, mussarela, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-024",
+      "name": "Paulista",
+      "description": "Molho de tomate, mussarela, presunto, palmito, bacon, tomate",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-025",
+      "name": "Pepperoni",
+      "description": "Molho de tomate, mussarela, salame, pepperoni, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-026",
+      "name": "Portuguesa",
+      "description": "Molho de tomate, mussarela, presunto, ovos, cebola, orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 38
+      }
+    },
+    {
+      "id": "prod-027",
+      "name": "Salame",
+      "description": "Molho de tomate, mussarela, tomate, salame, azeitona",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 37
+      }
+    },
+    {
+      "id": "prod-028",
+      "name": "Toscana",
+      "description": "Molho de tomate, calabresa, mussarela",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-029",
+      "name": "Vegetariana",
+      "description": "Molho de tomate, mussarela, palmito, azeitona, cebola, tomate",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-030",
+      "name": "Vegetariana 3 Queijos",
+      "description": "Molho de tomate, mussarela, catupiry, cheddar, parmesão",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-031",
+      "name": "Catubresa",
+      "description": "Calabresa, catupiry, mussarela, cheddar, molho de tomate e orégano",
+      "categoryId": "tradicionais",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 38
+      }
+    },
+    {
+      "id": "prod-032",
+      "name": "Prestígio",
+      "description": "Chocolate, coco ralado",
+      "categoryId": "doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-033",
+      "name": "Morango",
+      "description": "Chocolate, morango, leite condensado",
+      "categoryId": "doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-034",
+      "name": "Romeu e Julieta",
+      "description": "Queijo mussarela, goiabada",
+      "categoryId": "doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-035",
+      "name": "Brigadeiro",
+      "description": "Chocolate, granulado",
+      "categoryId": "doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-036",
+      "name": "Cartola",
+      "description": "Leite condensado, banana, canela, açúcar",
+      "categoryId": "doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 25,
+        "m": 30,
+        "g": 36
+      }
+    },
+    {
+      "id": "prod-037",
+      "name": "Banana Nevada",
+      "description": "Creme de leite, banana, chocolate branco, canela, açúcar",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 50
+      }
+    },
+    {
+      "id": "prod-038",
+      "name": "Kit Kat",
+      "description": "Creme de leite, chocolate, kit kat",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-039",
+      "name": "M&M",
+      "description": "Creme de leite, chocolate, M&M",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 38
+      }
+    },
+    {
+      "id": "prod-040",
+      "name": "Chocobom",
+      "description": "Creme de leite, chocolate, bombom",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-041",
+      "name": "Óreo",
+      "description": "Creme de leite, chocolate branco, mini óreo",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-042",
+      "name": "Contemplação",
+      "description": "Creme de leite, chocolate, morango, banana, coco ralado, leite condensado",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-043",
+      "name": "Formigueiro em Chocolate Branco",
+      "description": "Creme de leite, chocolate branco, brigadeiro",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-044",
+      "name": "Pizza Sorvete",
+      "description": "Creme de leite, chocolate, sorvete",
+      "categoryId": "premium-doces",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-045",
+      "name": "Pizza do Pântano",
+      "description": "Mussarela, queijo branco, frango, bacon, pepperoni, cream cheese, ovos, tomate, cebola, milho, orégano, azeitona, manjericão",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 60
+      }
+    },
+    {
+      "id": "prod-046",
+      "name": "A Moda Lamundo dos Sabores",
+      "description": "Mussarela, molho lombo, cream cheese, milho, barbecue, orégano, bacon",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 53
+      }
+    },
+    {
+      "id": "prod-047",
+      "name": "Bacon 4 Queijos",
+      "description": "Molho, mussarela, bacon, cheddar, catupiry, parmesão, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-048",
+      "name": "Super Portuguesa",
+      "description": "Mussarela, molho, presunto, milho, ovo, tomate, cebola, pimentão, catupiry, bacon, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 55
+      }
+    },
+    {
+      "id": "prod-049",
+      "name": "Calabresa Cheese",
+      "description": "Mussarela, molho, cebola, cream cheese",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 40
+      }
+    },
+    {
+      "id": "prod-050",
+      "name": "Tropical – 5 Queijos",
+      "description": "Mussarela, molho, cheddar, catupiry, cream cheese, parmesão",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 43
+      }
+    },
+    {
+      "id": "prod-051",
+      "name": "Camarão Cheese",
+      "description": "Molho de tomate, orégano, camarão, mussarela, cream cheese",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 60
+      }
+    },
+    {
+      "id": "prod-052",
+      "name": "O Reino de Frango",
+      "description": "Mussarela, molho, frango desfiado, cebolinha verde, cream cheese, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 44
+      }
+    },
+    {
+      "id": "prod-053",
+      "name": "Frango 4 Queijos",
+      "description": "Mussarela, molho, frango desfiado, catupiry, queijo parmesão, cheddar, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 42
+      }
+    },
+    {
+      "id": "prod-054",
+      "name": "Super Fritas",
+      "description": "Mussarela, molho, batata frita",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
+      }
+    },
+    {
+      "id": "prod-055",
+      "name": "Camarão",
+      "description": "Molho de tomate, mussarela, orégano, camarão",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 55
+      }
+    },
+    {
+      "id": "prod-056",
+      "name": "Do Neves para o Mundo",
+      "description": "Molho de tomate, mussarela, calabresa, cream cheese, tomate, cebola, ovo, barbecue, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 50
+      }
+    },
+    {
+      "id": "prod-057",
+      "name": "Primavera",
+      "description": "Mussarela, palmito, milho, ervilha, batata palha, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 38
+      }
+    },
+    {
+      "id": "prod-058",
+      "name": "Frango Bacon c/ Cheddar",
+      "description": "Mussarela, molho, frango desfiado, bacon, cheddar, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 43
+      }
+    },
+    {
+      "id": "prod-059",
+      "name": "Churrasco Gratinado",
+      "description": "Mussarela, calabresa, cream cheese, molho, barbecue, cebolinha verde, cebola, azeitona, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 50
+      }
+    },
+    {
+      "id": "prod-060",
+      "name": "Super Frango",
+      "description": "Mussarela, frango desfiado, bacon, ovo, milho, cheddar, catupiry, orégano",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 44
+      }
+    },
+    {
+      "id": "prod-061",
+      "name": "Filadélfia",
+      "description": "Mussarela, ovo, frango, barbecue, tomate, molho, cebola",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 44
+      }
+    },
+    {
+      "id": "prod-062",
+      "name": "Nordestina",
+      "description": "Mussarela, molho, charque, catupiry, cheddar, milho, ervilha, cebola, tomate",
+      "categoryId": "premium-salgadas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "g": 45
       }
     }
   ],
