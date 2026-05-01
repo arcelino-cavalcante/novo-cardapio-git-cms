@@ -1434,7 +1434,10 @@ window.selectCourierForDispatch = async (courierIndex) => {
             mapLink = `📍 *Endereço:* ${order.customer.address} (${order.customer.reference || ''})\n`;
         }
 
-        const itemsList = order.items.map(i => `- ${i.qty}x ${i.name}`).join('\n');
+        const itemsList = order.items.map(i => {
+            const catLabel = i.meta && i.meta.categoryName ? ` [${i.meta.categoryName.toUpperCase()}]` : '';
+            return `- ${i.qty}x ${i.name}${catLabel}`;
+        }).join('\n');
 
         const msg = `*Pedido #${order.id.slice(0, 4)}* para ${order.customer.name}\n\n${itemsList}\n\n${mapLink}\nO cliente aguarda! 🛵💨`;
 

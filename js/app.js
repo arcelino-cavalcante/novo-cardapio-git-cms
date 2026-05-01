@@ -209,7 +209,10 @@ function renderHistory() {
         const card = document.createElement('div');
         card.className = 'bg-neutral-800 rounded-lg p-3 border border-neutral-700';
 
-        const itemsHtml = order.items.map(i => `<div class="text-xs text-neutral-400">${i.qty}x ${i.name}</div>`).join('');
+        const itemsHtml = order.items.map(i => {
+            const catLabel = i.meta && i.meta.categoryName ? ` <span class="uppercase">(${i.meta.categoryName})</span>` : '';
+            return `<div class="text-xs text-neutral-400">${i.qty}x ${i.name}${catLabel}</div>`;
+        }).join('');
 
         // Status Badge logic (simplified)
         let statusBadge = '<span class="text-xs text-green-500 font-bold">Enviado</span>';
@@ -1640,7 +1643,8 @@ function formatOrderForWhatsApp(order) {
 
     msg += `\n*Ítens do pedido:*\n`;
     order.items.forEach((item, idx) => {
-        msg += `(${item.qty}) ${item.name} - ${money(item.price * item.qty)}\n`;
+        const catLabel = item.meta?.categoryName ? ` [${item.meta.categoryName.toUpperCase()}]` : '';
+        msg += `(${item.qty}) ${item.name}${catLabel} - ${money(item.price * item.qty)}\n`;
         if (item.meta) {
             if (item.meta.sizeLabel) msg += `   Tamanho: ${item.meta.sizeLabel}\n`;
             if (item.meta.option) msg += `   ${item.meta.option.label || 'Opção'}: ${item.meta.option.name}\n`;
