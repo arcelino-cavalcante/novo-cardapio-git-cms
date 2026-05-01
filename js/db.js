@@ -154,7 +154,7 @@ export function normalizeDB(raw = {}) {
 
 export async function fetchDB() {
     try {
-        const response = await fetch('/data.json');
+        const response = await fetch('./data.json');
         if (!response.ok) {
             console.warn('data.json não encontrado. Usando banco de dados padrão.');
             return defaultDB();
