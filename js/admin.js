@@ -39,7 +39,15 @@ const dispatchList = document.getElementById('dispatchList');
 const dispatchOrderId = document.getElementById('dispatchOrderId');
 let currentDispatchOrderId = null; // To store ID while modal is open
 
-// DOM Elements - Auth (Removed)
+// DOM Elements - Auth
+const authScreen = document.getElementById('authScreen');
+const authForm = document.getElementById('authForm');
+const authPassword = document.getElementById('authPassword');
+const authSubmit = document.getElementById('authSubmit');
+const authError = document.getElementById('authError');
+const logoutBtn = document.getElementById('logoutBtn');
+const GITHUB_REPO = 'arcelino-cavalcante/novo-cardapio-git-cms';
+let githubToken = localStorage.getItem('lamundo_gh_token');
 
 // DOM Elements - Products
 const pName = document.getElementById('pName');
@@ -125,41 +133,62 @@ function sanitizeSizePrices(values) {
 }
 
 async function persistDB() {
-    try {
-        const response = await fetch('/api/save', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ data: DB, publish: false })
-        });
-        if (!response.ok) throw new Error('Falha ao salvar localmente');
-    } catch (error) {
-        console.error('Erro ao salvar dados:', error);
-        showCustomAlert('Não foi possível salvar os dados localmente. Tente novamente.');
-        throw error;
-    }
+    // Apenas mantém o estado em memória. O salvamento real ocorre no botão "Salvar e Publicar".
+    // Se quiser que salve no localStorage como backup local temporário, pode ser feito aqui.
 }
 
 const btnPublishGitHub = document.getElementById('btnPublishGitHub');
 if (btnPublishGitHub) {
     btnPublishGitHub.addEventListener('click', async () => {
+        if (!githubToken) {
+            showCustomAlert('Você precisa estar logado com seu Token do GitHub.');
+            return;
+        }
+
         btnPublishGitHub.disabled = true;
         const originalText = btnPublishGitHub.innerHTML;
         btnPublishGitHub.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publicando...';
+        
         try {
-            const response = await fetch('/api/save', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ data: DB, publish: true })
+            // 1. Get current file SHA
+            const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data.json`, {
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
             });
-            const result = await response.json();
-            if (result.success) {
-                showCustomAlert('Alterações salvas e publicadas no GitHub com sucesso!');
+            if (!getRes.ok) throw new Error('Falha ao acessar o repositório. Verifique se o Token tem permissão de "repo".');
+            const fileData = await getRes.json();
+            const currentSha = fileData.sha;
+
+            // 2. Prepare new content (base64)
+            const plain = JSON.parse(JSON.stringify(DB));
+            const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(plain, null, 2))));
+
+            // 3. Commit to GitHub
+            const putRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data.json`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Atualização do cardápio via Admin',
+                    content: newContent,
+                    sha: currentSha
+                })
+            });
+
+            if (putRes.ok) {
+                showCustomAlert('Alterações publicadas com sucesso! O site será atualizado em ~1 minuto.');
             } else {
-                throw new Error(result.error || 'Erro desconhecido');
+                const errData = await putRes.json();
+                throw new Error(errData.message || 'Erro ao fazer commit');
             }
         } catch (error) {
             console.error('Erro ao publicar:', error);
-            showCustomAlert('Erro ao publicar no GitHub. Verifique o console.');
+            showCustomAlert('Erro ao publicar: ' + error.message);
         } finally {
             btnPublishGitHub.disabled = false;
             btnPublishGitHub.innerHTML = originalText;
@@ -1171,15 +1200,70 @@ function renderAll({ resetForms = false } = {}) {
     }
 }
 
-(async () => {
-    DB = await fetchDB();
-    hasInitializedUI = true;
-    renderAll({ resetForms: true });
-    
-    // Esconde tela de auth se existir no html
-    const authScreen = document.getElementById('authScreen');
-    if (authScreen) authScreen.classList.add('hidden');
-})();
+async function bootstrapAdmin() {
+    if (authSubmit) authSubmit.disabled = true;
+    try {
+        const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/data.json`, {
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            const content = decodeURIComponent(escape(atob(data.content)));
+            DB = normalizeDB(JSON.parse(content));
+            
+            if (authScreen) authScreen.classList.add('hidden');
+            if (logoutBtn) logoutBtn.classList.remove('hidden');
+            hasInitializedUI = true;
+            renderAll({ resetForms: true });
+        } else {
+            throw new Error('Token inválido ou sem acesso.');
+        }
+    } catch (e) {
+        console.error(e);
+        localStorage.removeItem('lamundo_gh_token');
+        githubToken = null;
+        if (authScreen) authScreen.classList.remove('hidden');
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+        if (authError) {
+            authError.textContent = 'Token inválido ou sem permissão.';
+            authError.classList.remove('hidden');
+        }
+    } finally {
+        if (authSubmit) authSubmit.disabled = false;
+    }
+}
+
+if (authForm) {
+    authForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (authError) authError.classList.add('hidden');
+        githubToken = authPassword.value.trim();
+        localStorage.setItem('lamundo_gh_token', githubToken);
+        if (authSubmit) authSubmit.textContent = 'Verificando...';
+        await bootstrapAdmin();
+        if (authSubmit) authSubmit.textContent = 'Acessar Painel';
+    });
+}
+
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('lamundo_gh_token');
+        location.reload();
+    });
+}
+
+// Initial check
+if (githubToken) {
+    bootstrapAdmin();
+} else {
+    if (authScreen) authScreen.classList.remove('hidden');
+    // Fetch public data just to have it in memory, though UI is blocked
+    fetchDB().then(data => { DB = data; });
+}
 
 /* KDS Logic - Appended to admin.js */
 

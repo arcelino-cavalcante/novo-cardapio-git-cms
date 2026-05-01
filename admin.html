@@ -56,22 +56,17 @@
     <div id="authScreen" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center px-4">
         <div class="w-full max-w-sm bg-white border border-neutral-200 rounded-2xl shadow-xl p-6 space-y-4">
             <div class="text-center space-y-1">
-                <h2 class="text-xl font-semibold">Área Restrita</h2>
-                <p class="text-sm text-neutral-500">Entre com seu email e senha cadastrados.</p>
+                <h2 class="text-xl font-semibold">Acesso Administrativo</h2>
+                <p class="text-sm text-neutral-500">Insira seu Token do GitHub para atualizar o cardápio.</p>
             </div>
             <form id="authForm" class="space-y-3">
                 <div class="space-y-1">
-                    <label for="authEmail" class="text-sm font-medium text-neutral-700">Email</label>
-                    <input id="authEmail" type="email" autocomplete="email" required
-                        class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
-                </div>
-                <div class="space-y-1">
-                    <label for="authPassword" class="text-sm font-medium text-neutral-700">Senha</label>
-                    <input id="authPassword" type="password" autocomplete="current-password" required
-                        class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+                    <label for="authPassword" class="text-sm font-medium text-neutral-700">Token de Acesso (PAT)</label>
+                    <input id="authPassword" type="password" required
+                        class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="ghp_..." />
                 </div>
                 <button id="authSubmit" type="submit"
-                    class="w-full bg-brand-600 hover:bg-brand-700 text-white rounded-lg px-3 py-2 font-semibold transition-colors">Entrar</button>
+                    class="w-full bg-brand-600 hover:bg-brand-700 text-white rounded-lg px-3 py-2 font-semibold transition-colors">Acessar Painel</button>
             </form>
             <p id="authError" class="text-sm text-red-600 hidden"></p>
         </div>
