@@ -1,31 +1,33 @@
-const CACHE_NAME = 'lamundo-v1';
+const CACHE_NAME = 'lamundo-v2';
 const ASSETS = [
     './',
     './index.html',
     './admin.html',
     './manifest.json',
-    './favicon.ico',
-    './js/app.js',
-    './js/admin.js',
-    './js/db.js'
+    './favicon.ico'
 ];
 
 self.addEventListener('install', (e) => {
+    self.skipWaiting();
     e.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
     );
 });
 
+self.addEventListener('activate', (e) => {
+    e.waitUntil(
+        caches.keys().then(keys =>
+            Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+        ).then(() => self.clients.claim())
+    );
+});
+
 self.addEventListener('fetch', (e) => {
-    // Network first for logic, cache fallback for assets potentially
-    // For this app, mostly network is vital for realtime.
-    // We just need a SW to allow "Add to Home Screen".
+    // Always go network-first so data.json and JS updates propagate immediately
     e.respondWith(
         fetch(e.request).catch(() => {
             return caches.match(e.request).then(response => {
-                // If in cache return it, otherwise if it's a page navigation return index.html (offline fallback)
                 if (response) return response;
-                // Simple offline fallback
                 if (e.request.mode === 'navigate') {
                     return caches.match('./index.html');
                 }
