@@ -1647,7 +1647,7 @@ function formatOrderForWhatsApp(order) {
         if (refStr) msg += `*Local/Ponto de Referência:* ${refStr}\n`;
     }
 
-    msg += `\n*Ítens do pedido:*\n`;
+    msg += `\n*Itens do pedido:*\n`;
     order.items.forEach((item, idx) => {
         const catLabel = item.meta?.categoryName ? ` [${item.meta.categoryName.toUpperCase()}]` : '';
         msg += `(${item.qty}) ${item.name}${catLabel} - ${money(item.price * item.qty)}\n`;
