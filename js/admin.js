@@ -333,8 +333,23 @@ if (productSearch) {
 
 if (pFileInput) {
     pFileInput.addEventListener('change', (e) => {
-        showCustomAlert('Upload via Firebase desativado. Por favor, cole a URL da imagem diretamente no campo acima.');
-        pFileInput.value = '';
+        const file = e.target.files[0];
+        if (file) {
+            // Check file size (optional, limit to 2MB to avoid huge JSON files)
+            if (file.size > 2 * 1024 * 1024) {
+                showCustomAlert('A imagem é muito grande. Por favor, escolha uma imagem com menos de 2MB.');
+                pFileInput.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const base64String = event.target.result;
+                pImage.value = base64String;
+                showCustomAlert('Imagem carregada com sucesso e convertida para Base64!');
+            };
+            reader.readAsDataURL(file);
+        }
     });
 }
 
