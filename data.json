@@ -26,8 +26,28 @@
       "useSizes": false
     },
     {
-      "id": "bebidas",
-      "name": "Bebidas",
+      "id": "pasteis",
+      "name": "Pastéis",
+      "useSizes": false
+    },
+    {
+      "id": "esfirras",
+      "name": "Esfirras",
+      "useSizes": false
+    },
+    {
+      "id": "acai",
+      "name": "Açaí",
+      "useSizes": false
+    },
+    {
+      "id": "refrigerantes",
+      "name": "Refrigerantes",
+      "useSizes": false
+    },
+    {
+      "id": "batata-frita",
+      "name": "Batata Frita",
       "useSizes": false
     }
   ],
@@ -845,6 +865,706 @@
       "prices": {
         "g": 45
       }
+    },
+    {
+      "id": "prod-063",
+      "name": "Classic Burger",
+      "description": "Carne artesanal, queijo cheddar, alface, tomate, cebola e molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 13.99
+    },
+    {
+      "id": "prod-064",
+      "name": "Bacon Burger",
+      "description": "Carne artesanal, bacon crocante, queijo cheddar, cebola, tomate, alface, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 17
+    },
+    {
+      "id": "prod-065",
+      "name": "Smash Duplo",
+      "description": "2 carnes artesanais, salada, milho, ervilha, queijo mussarela, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 20
+    },
+    {
+      "id": "prod-066",
+      "name": "Mexicano",
+      "description": "Carne artesanal, salada, bacon, cheddar, ovo, batata palha, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 19
+    },
+    {
+      "id": "prod-067",
+      "name": "Churrasco Bresa",
+      "description": "Carne artesanal, ovo, calabresa, batata palha, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 19
+    },
+    {
+      "id": "prod-068",
+      "name": "Salsichão Burger",
+      "description": "Carne artesanal, salsicha, ovo, salada, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 14
+    },
+    {
+      "id": "prod-069",
+      "name": "Triplo do Cheff",
+      "description": "3 carnes artesanais, bacon, ovo, salada, molhos da casa",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 33
+    },
+    {
+      "id": "prod-070",
+      "name": "Burger Cheff",
+      "description": "Pão especial, carne, tomate, cebola, alface, fusão de queijo, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 8
+    },
+    {
+      "id": "prod-071",
+      "name": "Burger Nordestino",
+      "description": "Pão especial, hambúrguer bovino, queijo coalho, tomate, alface, queijo, cebola, calabresa, ovo, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 15.99
+    },
+    {
+      "id": "prod-072",
+      "name": "Drácula Bacon",
+      "description": "Pão especial, hambúrguer, queijo cheddar, mussarela, cebola caramelizada, ovo, bacon crocante, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 12.99
+    },
+    {
+      "id": "prod-073",
+      "name": "Goodzila Bresa",
+      "description": "Pão especial, hambúrguer bovino, ovo, calabresa, fusão de dois queijos, cebola caramelizada, salada, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 12.99
+    },
+    {
+      "id": "prod-074",
+      "name": "Rei Cheddar",
+      "description": "Pão especial, hambúrguer bovino, cheddar derretido, bacon crocante, frango desfiado, cebola caramelizada",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 12
+    },
+    {
+      "id": "prod-075",
+      "name": "King – Kong",
+      "description": "Pão especial, 2 carnes, 2 camadas de queijo cheddar e mussarela, presunto, alface, tomate, cebola, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 16
+    },
+    {
+      "id": "prod-076",
+      "name": "Monster King X – Tudo",
+      "description": "Pão especial, hambúrguer, salada, bacon, presunto, ovo, calabresa, frango desfiado, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 16
+    },
+    {
+      "id": "prod-077",
+      "name": "Amistoso Palha",
+      "description": "Pão especial, hambúrguer, presunto, fusão de queijos, batata palha, molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 12
+    },
+    {
+      "id": "prod-078",
+      "name": "Hamburgão Irado",
+      "description": "3 Carnes, 3 Ovos, Presunto, Calabresa, Queijo, Salada, Batata frita, cheddar e molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 36
+    },
+    {
+      "id": "prod-079",
+      "name": "Mega Hamburgão",
+      "description": "6 Carnes, 6 Ovos, Presunto, Calabresa, Queijo, Salada, Batata frita, cheddar e molho especial",
+      "categoryId": "hamburgueres",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 65
+    },
+    {
+      "id": "prod-080",
+      "name": "Frango Catupiry",
+      "description": "Pastel de frango com catupiry",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-081",
+      "name": "Frango Cheddar",
+      "description": "Pastel de frango com cheddar",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-082",
+      "name": "Calabresa",
+      "description": "Pastel de calabresa",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-083",
+      "name": "Presunto",
+      "description": "Pastel de presunto",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-084",
+      "name": "Mussarela",
+      "description": "Pastel de mussarela",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-085",
+      "name": "Misto",
+      "description": "Presunto e mussarela",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-086",
+      "name": "Queijo Branco",
+      "description": "Pastel de queijo coalho",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-087",
+      "name": "Camarão + Cream Cheese",
+      "description": "Pastel de camarão com cream cheese",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 13
+    },
+    {
+      "id": "prod-088",
+      "name": "Camarão + Cheddar",
+      "description": "Pastel de camarão com cheddar",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-089",
+      "name": "Camarão + Mussarela",
+      "description": "Pastel de camarão com mussarela",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-090",
+      "name": "Bacon + Mussarela",
+      "description": "Pastel de bacon com mussarela",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 8
+    },
+    {
+      "id": "prod-091",
+      "name": "Charque + Cream Cheese",
+      "description": "Pastel de charque com cream cheese",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-092",
+      "name": "Calabrês",
+      "description": "Pastel de calabresa, queijo e molho de tomate",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-093",
+      "name": "Catubrês",
+      "description": "Pastel de calabresa, mussarela e catupiry",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 8
+    },
+    {
+      "id": "prod-094",
+      "name": "Franrei",
+      "description": "Pastel de frango com requeijão",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-095",
+      "name": "Frango + Cream Cheese",
+      "description": "Pastel de frango com cream cheese",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-096",
+      "name": "Frango + Mussarela",
+      "description": "Pastel de frango com mussarela",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-097",
+      "name": "4 Sabores",
+      "description": "Escreva na Observação os 4 sabores",
+      "categoryId": "pasteis",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-098",
+      "name": "Frango c/ Catupiry",
+      "description": "Esfirra de frango com catupiry",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-099",
+      "name": "Mussarela",
+      "description": "Esfirra recheada com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-100",
+      "name": "Queijo Branco",
+      "description": "Esfirra com queijo branco",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-101",
+      "name": "Bacon",
+      "description": "Esfirra recheada com bacon",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-102",
+      "name": "Frango c/ Mussarela",
+      "description": "Esfirra de frango com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-103",
+      "name": "Calabresa",
+      "description": "Esfirra de calabresa",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-104",
+      "name": "Toscana",
+      "description": "Esfirra de linguiça toscana",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-105",
+      "name": "Dois Queijos",
+      "description": "Esfirra de mussarela e catupiry",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-106",
+      "name": "Frango c/ Cheddar",
+      "description": "Esfirra de frango com cheddar",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 4
+    },
+    {
+      "id": "prod-107",
+      "name": "Palmito c/ Mussarela",
+      "description": "Esfirra de palmito com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 5
+    },
+    {
+      "id": "prod-108",
+      "name": "Charque c/ Mussarela",
+      "description": "Esfirra de charque com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-109",
+      "name": "Charque c/ Cream Cheese",
+      "description": "Esfirra de charque com cream cheese",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 7
+    },
+    {
+      "id": "prod-110",
+      "name": "Camarão c/ Mussarela",
+      "description": "Esfirra de camarão com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 8
+    },
+    {
+      "id": "prod-111",
+      "name": "Camarão c/ Cream Cheese",
+      "description": "Esfirra de camarão com cream cheese",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-112",
+      "name": "Atum c/ Mussarela",
+      "description": "Esfirra de atum com mussarela",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-113",
+      "name": "Brigadeiro",
+      "description": "Esfirra de brigadeiro",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-114",
+      "name": "Prestígio",
+      "description": "Esfirra de prestígio",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-115",
+      "name": "Morango c/ Chocolate",
+      "description": "Esfirra de morango com chocolate",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-116",
+      "name": "Banana c/ Chocolate",
+      "description": "Esfirra de banana com chocolate",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-117",
+      "name": "MM c/ Chocolate",
+      "description": "Esfirra de MM com chocolate",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-118",
+      "name": "Romeu e Julieta",
+      "description": "Esfirra de queijo com goiabada",
+      "categoryId": "esfirras",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-119",
+      "name": "Açaí 500ml",
+      "description": "Brigadeiro, leite condensado, leite em pó, granola, frutas (banana ou morango)",
+      "categoryId": "acai",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 23
+    },
+    {
+      "id": "prod-120",
+      "name": "Açaí 300ml",
+      "description": "Brigadeiro, leite condensado, leite em pó, granola, frutas (banana ou morango)",
+      "categoryId": "acai",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 18
+    },
+    {
+      "id": "prod-121",
+      "name": "Açaí Supremo",
+      "description": "Brigadeiro, leite condensado, leite em pó, granola, frutas, jujubas, chocolate",
+      "categoryId": "acai",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 35
+    },
+    {
+      "id": "prod-122",
+      "name": "Refrigerante Lata Coca",
+      "description": "Lata Coca-Cola",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-123",
+      "name": "Refrigerante Lata Fanta",
+      "description": "Lata Fanta",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 6
+    },
+    {
+      "id": "prod-124",
+      "name": "Refrigerante 1L Guaraná ou Coca",
+      "description": "Refrigerante de 1 litro - Guaraná ou Coca-Cola",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 9
+    },
+    {
+      "id": "prod-125",
+      "name": "Refrigerante 2L Guaraná ou Fanta",
+      "description": "Refrigerante de 2 litros - Guaraná ou Fanta",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 13
+    },
+    {
+      "id": "prod-126",
+      "name": "Refrigerante 2L Coca",
+      "description": "Refrigerante de 2 litros - Coca-Cola",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 15
+    },
+    {
+      "id": "prod-127",
+      "name": "Refrigerante 2L Jatobá",
+      "description": "Refrigerante de 2 litros - Jatobá",
+      "categoryId": "refrigerantes",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 10
+    },
+    {
+      "id": "prod-128",
+      "name": "Batata Frita P",
+      "description": "Porção de batata frita crocante + cheddar + queijo ralado",
+      "categoryId": "batata-frita",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 7
+    },
+    {
+      "id": "prod-129",
+      "name": "Batata Frita G",
+      "description": "Porção de batata frita crocante + cheddar + queijo ralado",
+      "categoryId": "batata-frita",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 15
+    },
+    {
+      "id": "prod-130",
+      "name": "Batata Especial",
+      "description": "Porção de batata frita crocante + cheddar premium derretido + bacon crocante",
+      "categoryId": "batata-frita",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 20
+    },
+    {
+      "id": "prod-131",
+      "name": "Batata Calabresa",
+      "description": "Porção de batata frita crocante + cheddar premium derretido + calabresa",
+      "categoryId": "batata-frita",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 20
+    },
+    {
+      "id": "prod-132",
+      "name": "Batata Calabresa Acebolada",
+      "description": "Porção de batata frita crocante + cheddar premium derretido + calabresa acebolada",
+      "categoryId": "batata-frita",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "price": 25
     }
   ],
   "fees": {
