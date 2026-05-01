@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel Administrativo</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="La Mundo Admin" />
+    <link rel="apple-touch-icon" href="favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FFF8E1', 100: '#FFECB3', 200: '#FFE082', 300: '#FFD54F', 400: '#FFCA28', 500: '#FBBF24', 600: '#F59E0B', 700: '#D97706', 800: '#B45309', 900: '#92400e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-50 text-neutral-900">
+    <header class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <h1 class="text-xl md:text-2xl font-bold">Painel Administrativo</h1>
+            <div class="flex items-center gap-3">
+                <button id="btnPublishGitHub" class="px-4 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition-colors shadow flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Salvar e Publicar
+                </button>
+                <a href="index.html" class="px-4 py-2 rounded-lg border hover:bg-neutral-100">Voltar ao Cardápio</a>
+                <button id="logoutBtn"
+                    class="px-4 py-2 rounded-lg border text-red-600 hover:bg-red-50 hidden">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="authScreen" class="fixed inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+        <div class="w-full max-w-sm bg-white border border-neutral-200 rounded-2xl shadow-xl p-6 space-y-4">
+            <div class="text-center space-y-1">
+                <h2 class="text-xl font-semibold">Área Restrita</h2>
+                <p class="text-sm text-neutral-500">Entre com seu email e senha cadastrados.</p>
+            </div>
+            <form id="authForm" class="space-y-3">
+                <div class="space-y-1">
+                    <label for="authEmail" class="text-sm font-medium text-neutral-700">Email</label>
+                    <input id="authEmail" type="email" autocomplete="email" required
+                        class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+                </div>
+                <div class="space-y-1">
+                    <label for="authPassword" class="text-sm font-medium text-neutral-700">Senha</label>
+                    <input id="authPassword" type="password" autocomplete="current-password" required
+                        class="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" />
+                </div>
+                <button id="authSubmit" type="submit"
+                    class="w-full bg-brand-600 hover:bg-brand-700 text-white rounded-lg px-3 py-2 font-semibold transition-colors">Entrar</button>
+            </form>
+            <p id="authError" class="text-sm text-red-600 hidden"></p>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        <!-- Tabs -->
+        <div class="-mx-4 sm:mx-0 overflow-x-auto mb-4">
+            <div class="px-4 sm:px-0 flex gap-2 min-w-max whitespace-nowrap pb-1">
+                <button id="tabProdutos" class="px-4 py-2 rounded-lg bg-neutral-800 text-white"><i class="fa-solid fa-burger mr-2"></i>Produtos</button>
+                <button id="tabCategorias" class="px-4 py-2 rounded-lg bg-white border">Categorias</button>
+                <button id="tabMonteSeu" class="px-4 py-2 rounded-lg bg-white border">Monte Seu...</button>
+                <button id="tabOpcionais" class="px-4 py-2 rounded-lg bg-white border">Opcionais</button>
+                <button id="tabTaxas" class="px-4 py-2 rounded-lg bg-white border">Taxas</button>
+                <button id="tabEntregadores" class="px-4 py-2 rounded-lg bg-white border">Entregadores</button>
+                <button id="tabInfo" class="px-4 py-2 rounded-lg bg-white border">Informações</button>
+            </div>
+        </div>
+
+
+        <section id="viewProdutos" class="bg-white border rounded-xl overflow-hidden">
+            <div class="p-4 border-b grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div class="col-span-full">
+                    <label class="block text-sm">Nome do Produto</label>
+                    <input id="pName" class="w-full border rounded-lg px-3 py-2" placeholder="Ex.: Calabresa" />
+                </div>
+                <div class="col-span-full">
+                    <label class="block text-sm">Descrição (opcional)</label>
+                    <textarea id="pDescription" rows="3" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="Detalhes, ingredientes ou destaques do produto"></textarea>
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    <label class="block text-sm">Categoria</label>
+                    <select id="pCategory" class="w-full border rounded-lg px-3 py-2"></select>
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    <label class="block text-sm">Grupo de opcionais</label>
+                    <select id="pOptionGroup" class="w-full border rounded-lg px-3 py-2"></select>
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    <label class="block text-sm">URL da Imagem</label>
+                    <input id="pImage" class="w-full border rounded-lg px-3 py-2" placeholder="https://..." />
+                    <div class="mt-2 text-xs text-neutral-500">Ou faça upload:</div>
+                    <input id="pFileInput" type="file" accept="image/*"
+                        class="block w-full text-sm text-neutral-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100" />
+                    <div id="pUploadStatus" class="mt-1 text-xs text-brand-600 font-semibold h-4"></div>
+                </div>
+                <div id="boxPricesSimple" class="col-span-full md:col-span-1">
+                    <label class="block text-sm">Preço (único)</label>
+                    <input id="pPrice" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="0,00" />
+                </div>
+                <div id="boxPricesSimpleOffer" class="col-span-full md:col-span-1">
+                    <label class="block text-sm">Preço na Promoção</label>
+                    <input id="pOfferPrice" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="0,00" />
+                </div>
+                <div id="boxPricesSizes" class="grid grid-cols-3 gap-2 hidden col-span-full">
+                    <div>
+                        <label class="block text-sm">Preço P</label>
+                        <input id="pPriceP" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                    <div>
+                        <label class="block text-sm">Preço M</label>
+                        <input id="pPriceM" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                    <div>
+                        <label class="block text-sm">Preço G</label>
+                        <input id="pPriceG" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                </div>
+                <div id="boxPricesSizesOffer" class="grid grid-cols-3 gap-2 hidden col-span-full">
+                    <div>
+                        <label class="block text-sm">Oferta P</label>
+                        <input id="pOfferPriceP" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                    <div>
+                        <label class="block text-sm">Oferta M</label>
+                        <input id="pOfferPriceM" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                    <div>
+                        <label class="block text-sm">Oferta G</label>
+                        <input id="pOfferPriceG" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 col-span-full md:col-span-1">
+                    <input id="pAvailable" type="checkbox" class="scale-125">
+                    <label for="pAvailable">Disponível</label>
+                </div>
+                <div class="col-span-full flex justify-end">
+                    <button id="btnSaveProduct" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="p-4 border-b flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div class="flex flex-wrap gap-2" id="productFilterButtons"></div>
+                <div class="w-full md:w-64">
+                    <label class="block text-sm mb-1" for="productSearch">Buscar produtos</label>
+                    <input id="productSearch" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="Digite o nome ou descrição" />
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-neutral-100">
+                        <tr>
+                            <th class="text-left p-3">Produto</th>
+                            <th class="text-left p-3">Descrição</th>
+                            <th class="text-left p-3">Categoria</th>
+                            <th class="text-left p-3">Imagem</th>
+                            <th class="text-left p-3">Preço</th>
+                            <th class="text-left p-3">Esgotado</th>
+                            <th class="text-right p-3">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridProducts"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Categorias -->
+        <section id="viewCategorias" class="bg-white border rounded-xl overflow-hidden hidden">
+            <div class="p-4 border-b flex flex-col md:flex-row md:items-end gap-3">
+                <div class="flex-1">
+                    <label class="block text-sm">Nome da Categoria</label>
+                    <input id="cName" class="w-full border rounded-lg px-3 py-2" placeholder="Ex.: Pizzas" />
+                </div>
+                <div class="flex items-center gap-2">
+                    <input id="cUseSizes" type="checkbox" class="scale-125">
+                    <label for="cUseSizes">Usar tamanhos (P/M/G)</label>
+                </div>
+                <div id="cAllowHalfWrapper" class="flex items-center gap-2 hidden">
+                    <input id="cAllowHalf" type="checkbox" class="scale-125">
+                    <label for="cAllowHalf">Permitir meia a meia</label>
+                </div>
+                <button id="btnSaveCategory" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Adicionar</button>
+            </div>
+
+            <div class="p-4 border-b">
+                <label class="block text-sm">Grupo de opcionais</label>
+                <select id="cOptionGroup" class="w-full border rounded-lg px-3 py-2"></select>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-neutral-100">
+                        <tr>
+                            <th class="text-left p-3">Categoria</th>
+                            <th class="text-left p-3">Usa tamanhos</th>
+                            <th class="text-left p-3">Opcionais</th>
+                            <th class="text-left p-3">Meia a meia</th>
+                            <th class="text-right p-3">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridCategories"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Monte Seu... -->
+        <section id="viewMonteSeu" class="bg-white border rounded-xl overflow-hidden hidden">
+            <div class="p-4 border-b space-y-4">
+                <div>
+                    <label class="block text-sm">Nome da Categoria (Ex: Monte Seu Açaí)</label>
+                    <input id="msName" class="w-full border rounded-lg px-3 py-2" />
+                </div>
+                <div>
+                    <label class="block text-sm">Tipo de Montagem</label>
+                    <select id="msType" class="w-full border rounded-lg px-3 py-2">
+                        <option value="base">Preço Base (Hambúrguer, Pastel)</option>
+                        <option value="sizes">Tamanhos (Açaí)</option>
+                    </select>
+                </div>
+
+                <div id="msBoxBasePrice">
+                    <label class="block text-sm">Preço Base (Ex: Pão e Carne)</label>
+                    <input id="msBasePrice" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                </div>
+
+                <div id="msBoxSizes" class="hidden space-y-2">
+                    <label class="block text-sm">Opções de Tamanho</label>
+                    <div id="msSizesContainer"></div>
+                    <button id="msBtnAddSize" class="px-3 py-1 text-sm rounded-lg border hover:bg-neutral-100">+
+                        Adicionar Tamanho</button>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm">Opcionais / Adicionais</label>
+                    <div id="msAddonsContainer"></div>
+                    <button id="msBtnAddAddon" class="px-3 py-1 text-sm rounded-lg border hover:bg-neutral-100">+
+                        Adicionar Opcional</button>
+                </div>
+
+                <div class="flex justify-end">
+                    <button id="btnSaveMonteSeu" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Adicionar</button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-neutral-100">
+                        <tr>
+                            <th class="text-left p-3">Nome</th>
+                            <th class="text-left p-3">Tipo</th>
+                            <th class="text-right p-3">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridMonteSeu"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Opcionais -->
+        <section id="viewOpcionais" class="bg-white border rounded-xl overflow-hidden hidden">
+            <div class="p-4 border-b space-y-4">
+                <div>
+                    <label class="block text-sm">Nome do Grupo</label>
+                    <input id="ogName" class="w-full border rounded-lg px-3 py-2" placeholder="Ex.: Bordas" />
+                </div>
+                <div>
+                    <label class="block text-sm">Rótulo exibido no cardápio</label>
+                    <input id="ogLabel" class="w-full border rounded-lg px-3 py-2" placeholder="Ex.: Escolha a borda" />
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm">Opções</label>
+                    <div id="ogOptionsContainer" class="space-y-2"></div>
+                    <button id="ogBtnAddOption" class="px-3 py-1 text-sm rounded-lg border hover:bg-neutral-100">+
+                        Adicionar opção</button>
+                </div>
+                <div class="flex justify-end">
+                    <button id="btnSaveOptionGroup"
+                        class="px-4 py-2 rounded-lg bg-brand-600 text-white">Adicionar</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-neutral-100">
+                        <tr>
+                            <th class="text-left p-3">Grupo</th>
+                            <th class="text-left p-3">Rótulo</th>
+                            <th class="text-left p-3">Opções</th>
+                            <th class="text-right p-3">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridOptionGroups"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Taxas -->
+        <section id="viewTaxas" class="bg-white border rounded-xl overflow-hidden hidden">
+            <div class="p-4 border-b grid md:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-sm">Taxa Base (Vila Neves)</label>
+                    <input id="tBase" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                </div>
+                <div class="flex items-end">
+                    <button id="btnSaveBase" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Salvar Taxa
+                        Base</button>
+                </div>
+            </div>
+
+            <div class="p-4 border-b grid md:grid-cols-3 gap-3">
+                <div class="md:col-span-2">
+                    <label class="block text-sm">Nome do Sítio</label>
+                    <input id="sName" class="w-full border rounded-lg px-3 py-2" placeholder="Ex.: Sítio Papa Terra" />
+                </div>
+                <div>
+                    <label class="block text-sm">Taxa</label>
+                    <input id="sFee" type="number" step="0.01" class="w-full border rounded-lg px-3 py-2" />
+                </div>
+                <div class="md:col-span-3">
+                    <button id="btnSaveSitio" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Adicionar
+                        Sítio</button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-neutral-100">
+                        <tr>
+                            <th class="text-left p-3">Sítio</th>
+                            <th class="text-left p-3">Taxa</th>
+                            <th class="text-right p-3">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridSitios"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Informações -->
+        <section id="viewInfo" class="bg-white border rounded-xl overflow-hidden hidden">
+            <div class="p-4 border-b space-y-4">
+                <div>
+                    <label class="block text-sm">Descrição ou Horário</label>
+                    <textarea id="infoDescription" class="w-full border rounded-lg px-3 py-2" rows="3"
+                        placeholder="Aberto hoje: 18h–23h"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm">Endereço</label>
+                    <input id="infoAddress" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="Rua José Bezerra Lins, Garanhuns - PE" />
+                </div>
+                <div>
+                    <label class="block text-sm">WhatsApp</label>
+                    <input id="infoWhatsapp" class="w-full border rounded-lg px-3 py-2" placeholder="(87) 98129-0926" />
+                </div>
+                <div>
+                    <label class="block text-sm">Instagram</label>
+                    <input id="infoInstagram" class="w-full border rounded-lg px-3 py-2"
+                        placeholder="@lamundodossaboresguns" />
+                </div>
+                <div class="flex items-center gap-2">
+                    <input id="infoOpen" type="checkbox" class="scale-125" />
+                    <label for="infoOpen">Estamos abertos</label>
+                </div>
+                <!-- Footer Message -->
+                <div>
+                    <label class="block text-sm">Mensagem de Rodapé (Nota)</label>
+                    <textarea id="infoFooterMessage" class="w-full border rounded-lg px-3 py-2" rows="2"
+                        placeholder="Deus é Fiel!"></textarea>
+                    <p class="text-xs text-neutral-400 mt-1">Texto exibido ao final da impressão (ex: Versículo).</p>
+                </div>
+                <div class="flex justify-end">
+                    <button id="btnSaveInfo" class="px-4 py-2 rounded-lg bg-brand-600 text-white">Salvar
+                        Informações</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- View: Entregadores -->
+        <section id="viewEntregadores" class="hidden">
+            <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h1 class="text-2xl font-bold">Entregadores</h1>
+                    <p class="text-neutral-400">Gerencie sua equipe para despacho rápido.</p>
+                </div>
+            </header>
+
+            <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-8">
+                <h2 class="font-bold mb-4">Adicionar Entregador</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <input id="courierName" type="text" placeholder="Nome do Entregador"
+                        class="bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-500 transition-colors">
+                    <input id="courierPhone" type="tel" placeholder="WhatsApp (11999999999)"
+                        class="bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-500 transition-colors">
+                    <button id="btnAddCourier"
+                        class="bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg px-4 py-3 transition-colors">
+                        <i class="fa-solid fa-plus mr-2"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="gridCouriers">
+                <!-- Cards will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Dispatch Courier -->
+    <div id="dispatchModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-neutral-800 rounded-xl w-full max-w-md p-6">
+            <h3 class="text-xl font-bold mb-4">Chamar Entregador 🛵</h3>
+            <p class="text-neutral-400 text-sm mb-6">Escolha quem vai levar o pedido <span id="dispatchOrderId"
+                    class="font-mono text-white">#0000</span>.</p>
+
+            <div id="dispatchList" class="space-y-2 max-h-60 overflow-y-auto mb-4">
+                <!-- List of couriers to select -->
+            </div>
+
+            <button onclick="closeDispatchModal()"
+                class="w-full bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-bold py-3 rounded-lg">Cancelar</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('SW Registered'))
+                .catch(err => console.error('SW Failed:', err));
+        }
+    </script>
+</body>
+
+</html>

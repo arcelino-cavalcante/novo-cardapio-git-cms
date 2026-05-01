@@ -1,0 +1,54 @@
+{
+  "categories": [
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "useSizes": true
+    },
+    {
+      "id": "hamburgueres",
+      "name": "Hambúrgueres",
+      "useSizes": false
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas",
+      "useSizes": false
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-momyhjvoy2hr",
+      "name": "Calabresa",
+      "description": "dedjedjedjeb",
+      "categoryId": "pizzas",
+      "imageUrl": "",
+      "available": true,
+      "optionGroupId": null,
+      "prices": {
+        "p": 30,
+        "m": 40,
+        "g": 50
+      }
+    }
+  ],
+  "fees": {
+    "base": 5,
+    "sitios": []
+  },
+  "monteSeu": [],
+  "optionGroups": [],
+  "info": {
+    "description": "Aberto hoje: 18h–23h",
+    "address": "Rua José Bezerra Lins, Garanhuns - PE",
+    "whatsapp": "(87) 98129-0926",
+    "instagram": "@lamundodossaboresguns",
+    "open": true,
+    "footerMessage": ""
+  },
+  "sizeLabels": {
+    "p": "Pequena",
+    "m": "Média",
+    "g": "Grande"
+  }
+}
