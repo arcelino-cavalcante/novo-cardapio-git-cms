@@ -18,17 +18,17 @@
   ],
   "products": [
     {
-      "id": "prod-momyhjvoy2hr",
-      "name": "Calabresa",
-      "description": "dedjedjedjeb",
+      "id": "prod-mon016kk8g5y",
+      "name": "ccccc",
+      "description": "cccc",
       "categoryId": "pizzas",
       "imageUrl": "",
       "available": true,
       "optionGroupId": null,
       "prices": {
-        "p": 30,
-        "m": 40,
-        "g": 50
+        "p": 4,
+        "m": 6,
+        "g": 8
       }
     }
   ],
