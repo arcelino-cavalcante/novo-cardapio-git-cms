@@ -3,7 +3,8 @@
     {
       "id": "pizzas",
       "name": "Pizzas",
-      "useSizes": true
+      "useSizes": true,
+      "allowHalf": true
     },
     {
       "id": "hamburgueres",
